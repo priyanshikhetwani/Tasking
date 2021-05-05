@@ -37,16 +37,16 @@ export default class TasksController {
         
 
         // const user = auth.user
-        // await auth.user?.related('tasks').create({
-        //     title: validatedData.title,
-        //     userId: auth.user.id,
-        // })
-
-
-         await Task.create({
+        await auth.user?.related('tasks').create({
             title: validatedData.title,
-            // userId: auth.user.id,
+            userId: auth.user.id,
         })
+
+
+        //  await Task.create({
+        //     title: validatedData.title,
+            // userId: auth.user.id,
+        // })
         session.flash('notification', 'Task added!')
 
         return response.redirect('back')
